@@ -1,0 +1,36 @@
+# Define the root logger with appender file
+log4j.rootLogger = INFO, FILE
+
+# Define the file appender
+log4j.appender.FILE=org.apache.log4j.RollingFileAppender
+
+# Set the name of the file
+log4j.appender.FILE.File=log.txt
+
+log4j.logger.OTHER_LOGGER=DEBUG, OtherAppender
+
+log4j.additivity.OTHER_LOGGER = false
+
+
+
+log4j.appender.NotConsole.maxFileSize=20MB
+
+# Set the immediate flush to true (default)
+log4j.appender.FILE.ImmediateFlush=true
+
+# Set the threshold to debug mode
+log4j.appender.FILE.Threshold=debug
+
+# Set the append to false, overwrite
+log4j.appender.FILE.Append=true
+
+# Define the layout for file appender
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.conversionPattern=%m%n
+
+#File Appender
+log4j.appender.OtherAppender=org.apache.log4j.FileAppender
+log4j.appender.OtherAppender.File=status.txt
+log4j.appender.OtherAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.OtherAppender.Append=true
+log4j.appender.OtherAppender.layout.ConversionPattern= %m%n
